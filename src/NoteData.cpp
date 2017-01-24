@@ -302,6 +302,14 @@ int NoteData::GetLastTrackWithTapOrHoldHead( int row ) const
 	return -1;
 }
 
+
+void NoteData::LogNonEmptyRows() {
+	NonEmptyRowVector.clear();
+	FOREACH_NONEMPTY_ROW_ALL_TRACKS(*this, row)
+		NonEmptyRowVector.push_back(row);
+}
+
+	
 void NoteData::AddHoldNote( int iTrack, int iStartRow, int iEndRow, TapNote tn )
 {
 	ASSERT( iStartRow>=0 && iEndRow>=0 );
