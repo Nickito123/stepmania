@@ -111,6 +111,14 @@ public:
 	/** @brief The stringified list of attacks. */
 	vector<RString> m_sAttackString;
 
+	/* This is a reimplementation of the lua version of the script to generate chart keys, except this time
+	using the notedata stored in game memory immediately after reading it than parsing it using lua. - Mina */
+	std::string GenerateChartKey(NoteData &nd, TimingData *td);
+	std::string GenerateChartKey();
+	std::string ChartKey;
+	std::string GetChartKey();
+	void SetChartKey(const std::string &k) { ChartKey = k; }
+
 	RString GetChartName() const			{ return parent ? Real()->GetChartName() : this->chartName; }
 	void SetChartName(const RString name)	{ this->chartName = name; }
 	void SetFilename( RString fn )			{ m_sFilename = fn; }
