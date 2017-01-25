@@ -765,6 +765,10 @@ void NetworkSyncManager::ReportPlayerOptions()
 	NetPlayerClient->SendPack((char*)&m_packet.Data, m_packet.Position);
 }
 
+int NetworkSyncManager::GetServerVersion()
+{
+	return m_ServerVersion;
+}
 void NetworkSyncManager::SelectUserSong()
 {
 	m_packet.ClearPacket();
